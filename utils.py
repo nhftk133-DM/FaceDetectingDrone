@@ -77,13 +77,16 @@ def trackFace(myDrone, info, w, h, pid, pErrorYaw, pErrorForBack, pErrorUpDown):
         myDrone.yaw_velocity = speedYaw  # if we detect a face then we sending to the drone to trace of the face in yaw axis
         myDrone.for_back_velocity = speedForBack  # if we detect a face then we sending to the drone to trace of the face in ForBack axis
         myDrone.up_down_velocity = speedUpDown
+
+
     else:  # setting the values
         myDrone.for_back_velocity = 0
         myDrone.left_right_velocity = 0
         myDrone.up_down_velocity = 0
-        myDrone.yaw_velocity = 0
+        myDrone.yaw_velocity = 20
         errorYaw = 0
         errorForBack = 0
+
 
     if myDrone.send_rc_control:  # sanding the values "send_rc_control is bool"
         myDrone.send_rc_control(myDrone.left_right_velocity,
